@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Media Web Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background: #444;
+      padding: 0.75rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .video-section {
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .video-section video {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 10px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 50px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Responsive Media Web Page</h1>
+  </header>
+
+  <nav>
+    <a href="#gallery">Gallery</a>
+    <a href="#video">Video</a>
+    <a href="#cards">Content</a>
+  </nav>
+
+  <div class="container">
+    <section id="gallery" class="gallery">
+      <img src="pexels-philippedonn-1133957.jpg" alt="Sample Image 1" />
+      <img src="pexels-pixabay-147411.jpg" alt="Sample Image 2" />
+      <img src="pexels-pixabay-158063.jpg" alt="Sample Image 3" />
+    </section>
+
+    <section id="video" class="video-section">
+      <h2>Featured Video</h2>
+      <video controls>
+        <source src="C:\Users\yourf\OneDrive\Desktop\fornend\अयि_गिरिनन्दिनि_-_महिषासुर_मर्दिनी_स्तोत्र___नवरात्रि_2024___माधुबंती_बागची___Navratri_Blessings(2160p).mp4" type="video/mp4" />
+         Lisent to the video again and again    
+      </video>
+    </section>
+
+    <section id="cards" class="cards">
+      <div class="card">
+        <h3>Feature One</h3>
+        <p>This section highlights the core features with clean layout and styling. Thank you dear </p>
+      </div>
+      <div class="card">
+        <h3>Feature Two</h3>
+        <p>Fully responsive using CSS Grid and Flexbox for mobile-friendly design. Thank you dear</p>
+      </div>
+      <div class="card">
+        <h3>Feature Three</h3>
+        <p>Includes smooth hover effects and polished card layout.Thank you dear</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Your Project Name | Designed for Round 2.0 Intern ....!!
+  </footer>
+
+</body>
+</html>

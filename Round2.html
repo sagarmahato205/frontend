@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Top Nav + Left Sidebar + Dark Mode + Loader</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --nav-color: #333333;
+      --sidebar-color: #444444;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #111;
+      --text-color: #fff;
+      --nav-color: #222;
+      --sidebar-color: #333;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Loader */
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 6px solid #ccc;
+      border-top: 6px solid #333;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      width: 100%;
+      background-color: var(--nav-color);
+      color: rgb(55, 54, 54);
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      left: 0px;
+      z-index: 1001;
+      border-bottom: 5px solid #262525;
+    }
+
+    .menu-btn {
+      background: 5px solid #635656 ;
+       
+      border: none;
+      font-size: 30px;
+      
+      color: white;
+      cursor: pointer;
+    }
+
+    .dark-toggle {
+      background: #555;
+      color: white;
+      margin-right: 50px;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    /* Left Sidebar Navigation */
+    .left-nav {
+      position: fixed;
+      top: 25px;
+      left: -250px;
+      height: 100%;
+      width: 250px;
+      background-color: var(--sidebar-color);
+      color: rgb(80, 79, 79);
+      padding-top: 60px;
+    
+      transition: left 0.3s ease;
+      z-index: 1000;
+      border-right: 5px solid #1e0213;
+    }
+
+    .left-nav.active {
+      left: 0;
+    }
+
+    .left-nav a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid #221212;
+    }
+
+    .left-nav a:hover {
+      background-color: #2e1406;
+    }
+
+    .content {
+      padding: 100px 20px 20px;
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <div class="top-nav">
+    <button class="menu-btn" onclick="toggleLeftNav()">☰</button>
+    <button class="dark-toggle" onclick="toggleDarkMode()"> Dark Mode</button>
+  </div>
+
+  <!-- Left Sidebar Navigation -->
+  <div id="leftNav" class="left-nav">
+    <a href="#">Dashboard</a>
+    <a href="#">Profile</a>
+     
+     
+    <a href="sagr.html">Resources</a>
+    <a href="#">Settings</a>
+    <a href="#">Logout</a>
+    <a href="#">Help</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h2>Welcome to My Page</h2>
+    <p>Click the menu icon to open the left sidebar navigation.</p>
+    <p>Use the dark mode toggle button in the top navigation bar.</p>
+  </div>
+
+  <script>
+    // Toggle Sidebar
+    function toggleLeftNav() {
+      document.getElementById("leftNav").classList.toggle("active");
+    }
+
+    // Toggle Dark Mode
+    function toggleDarkMode() {
+      const body = document.body;
+      const currentTheme = body.getAttribute("data-theme");
+      body.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+    }
+
+    // Hide Loader after page loads
+    window.addEventListener("load", function () {
+      document.getElementById("loader").style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
